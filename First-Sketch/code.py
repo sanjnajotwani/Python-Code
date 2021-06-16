@@ -11,6 +11,7 @@ REGION_LEDS = (
     (7, 8, 9),  # red region
     (0, 1, 2),  # green region
 )
+#numbers overlap so 3 will flash at one time a different  color
 
 REGION_COLOR = (
     (255, 255, 0),  # yellow region
@@ -18,6 +19,7 @@ REGION_COLOR = (
     (255, 0, 0),    # red region
     (0, 255, 0),    # green region
 )
+#defines region
 
 def light_region(region, duration=1):
     # turn the LEDs for the selected region on
@@ -32,10 +34,12 @@ def light_region(region, duration=1):
 
     for led in REGION_LEDS[region]:
         cpx.pixels[led] = (0, 0, 0)
+# defines the region and time each light will flash for
 
 
 while True:
     light_region(0)
     light_region(1)
     light_region(2)
-    light_region(3,5)
+    light_region(3)
+    #actually does the action set up above, can add comma to specify the time next to region number
